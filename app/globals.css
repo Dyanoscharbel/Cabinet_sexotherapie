@@ -38,46 +38,46 @@
 /* ─── Color Palette ─────────────────────────────────────── */
 :root {
   /* Warm cream base */
-  --background: oklch(0.965 0.012 82);
-  --foreground: oklch(0.22 0.03 55);
+  --background: #F2F1F0;
+  --foreground: #262525;
 
-  --card: oklch(0.985 0.007 82);
-  --card-foreground: oklch(0.22 0.03 55);
+  --card: #F2F1F0;
+  --card-foreground: #262525;
 
-  --popover: oklch(0.985 0.007 82);
-  --popover-foreground: oklch(0.22 0.03 55);
+  --popover: #F2F1F0;
+  --popover-foreground: #262525;
 
   /* Deep dusty rose / mauve */
-  --primary: oklch(0.43 0.1 355);
-  --primary-foreground: oklch(0.97 0.005 82);
+  --primary: #F25E95;
+  --primary-foreground: #F2F1F0;
 
   /* Sage green */
-  --secondary: oklch(0.6 0.08 145);
-  --secondary-foreground: oklch(0.97 0.005 82);
+  --secondary: #F299B1;
+  --secondary-foreground: #F2F1F0;
 
   --muted: oklch(0.93 0.015 82);
   --muted-foreground: oklch(0.5 0.04 60);
 
   /* Warm gold accent */
-  --accent: oklch(0.75 0.1 75);
-  --accent-foreground: oklch(0.22 0.03 55);
+  --accent: #F299B1;
+  --accent-foreground: #262525;
 
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.88 0.018 80);
   --input: oklch(0.88 0.018 80);
-  --ring: oklch(0.43 0.1 355);
+  --ring: #F25E95;
 
   --radius: 0.75rem;
 
   /* Brand-specific tokens */
-  --rose: oklch(0.43 0.1 355);
-  --rose-light: oklch(0.88 0.07 355);
+  --rose: #F25E95;
+  --rose-light: #F299B1;
   --rose-pale: oklch(0.96 0.03 355);
   --sage: oklch(0.6 0.08 145);
   --sage-light: oklch(0.88 0.05 145);
   --gold: oklch(0.75 0.1 75);
-  --cream: oklch(0.965 0.012 82);
-  --espresso: oklch(0.22 0.03 55);
+  --cream: #F2F1F0;
+  --espresso: #262525;
 }
 
 /* ─── Base Styles ───────────────────────────────────────── */

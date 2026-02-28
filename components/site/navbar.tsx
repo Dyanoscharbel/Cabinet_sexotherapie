@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 /* ─── Nav items with icons (SVG inline) ─────────────────── */
 const navLinks = [
   {
-    href: "#apropos",
+    href: "/apropos",
     label: "À propos",
     tooltip: "À propos",
     icon: (
@@ -16,7 +16,7 @@ const navLinks = [
     ),
   },
   {
-    href: "#consultations",
+    href: "/#consultations",
     label: "Consultation",
     tooltip: "Consultation",
     icon: (
@@ -26,7 +26,7 @@ const navLinks = [
     ),
   },
   {
-    href: "#ressources",
+    href: "/#ressources",
     label: "Ressources",
     tooltip: "Ressources",
     icon: (
@@ -37,7 +37,7 @@ const navLinks = [
     ),
   },
   {
-    href: "#contact",
+    href: "/#contact",
     label: "Contact",
     tooltip: "Contact",
     icon: (
@@ -93,7 +93,7 @@ export default function Navbar() {
       >
         {/* Logo */}
         <a
-          href="#"
+          href="/"
           style={{ textDecoration: "none", display: "flex", flexDirection: "column", gap: "1px" }}
         >
           <span

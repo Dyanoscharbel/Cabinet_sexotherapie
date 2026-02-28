@@ -45,14 +45,11 @@ export default function Process() {
         {/* Left Column: Heading */}
         <div className="lg:col-span-5">
           <div className="flex items-start gap-1 mb-6">
-            <h2 className="font-display text-6xl md:text-7xl lg:text-8xl tracking-tighter text-neutral-900 leading-none">
+            <h2 className="font-display text-6xl md:text-7xl lg:text-8xl tracking-tighter text-foreground leading-none">
               Process
             </h2>
-            <span className="text-[10px] font-mono text-neutral-400 mt-2 tracking-widest">
-              000{steps.length}
-            </span>
           </div>
-          <p className="text-neutral-500 max-w-sm leading-relaxed text-lg">
+          <p className="text-muted-foreground max-w-sm leading-relaxed text-lg">
             Un parcours structuré et bienveillant pour vous accompagner vers votre équilibre intime, étape par étape.
           </p>
         </div>
@@ -73,16 +70,16 @@ export default function Process() {
                   <div className="flex items-center gap-3 mb-2">
                     <span 
                       className={`text-sm font-bold tracking-widest uppercase transition-colors duration-300 ${
-                        hoveredIndex === index ? "text-rose-500" : "text-neutral-900"
+                        hoveredIndex === index ? "text-primary" : "text-foreground"
                       }`}
                     >
-                      Step {index + 1}
+                      Étape {index + 1}
                     </span>
                   </div>
-                  <h3 className="text-2xl font-display text-neutral-900 mb-4 tracking-tight">
+                  <h3 className="text-2xl font-display text-foreground mb-4 tracking-tight">
                     {step.title}
                   </h3>
-                  <p className="text-neutral-500 leading-relaxed text-sm">
+                  <p className="text-muted-foreground leading-relaxed text-sm">
                     {step.description}
                   </p>
                 </div>

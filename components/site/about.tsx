@@ -1,229 +1,96 @@
+"use client";
+
+import Image from "next/image";
+
 export default function About() {
   return (
-    <section
-      id="apropos"
-      style={{
-        padding: "7rem 2rem",
-        background: "oklch(0.985 0.007 82)",
-        position: "relative",
-        overflow: "hidden",
-      }}
-    >
-      {/* Background decoration */}
-      <div
-        aria-hidden
-        style={{
-          position: "absolute",
-          top: 0,
-          right: 0,
-          width: "40%",
-          height: "100%",
-          background: "oklch(0.96 0.03 355 / 0.3)",
-          clipPath: "ellipse(80% 100% at 100% 50%)",
-        }}
-      />
-
-      <div
-        style={{
-          maxWidth: "1200px",
-          margin: "0 auto",
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr",
-          gap: "5rem",
-          alignItems: "center",
-          position: "relative",
-        }}
-        className="about-grid"
-      >
-        {/* Left: Image and quote */}
-        <div className="animate-fade-up" style={{ position: "relative" }}>
-          <div
-            style={{
-              borderRadius: "2rem",
-              overflow: "hidden",
-              aspectRatio: "3/4",
-              maxWidth: "380px",
-              margin: "0 auto",
-              boxShadow: "0 24px 70px oklch(0.43 0.1 355 / 0.16)",
-            }}
-          >
-            <div
-              className="img-placeholder"
-              style={{ width: "100%", height: "100%" }}
-            />
-          </div>
-
-          {/* Quote card */}
-          <div
-            style={{
-              position: "absolute",
-              bottom: "-2rem",
-              right: "-1rem",
-              background: "oklch(0.43 0.1 355)",
-              borderRadius: "1.25rem",
-              padding: "1.5rem",
-              maxWidth: "240px",
-              boxShadow: "0 16px 48px oklch(0.43 0.1 355 / 0.3)",
-            }}
-          >
-            <p
-              style={{
-                fontFamily: "var(--font-display), Georgia, serif",
-                fontSize: "1rem",
-                fontStyle: "italic",
-                color: "oklch(0.97 0.005 82)",
-                lineHeight: 1.5,
-                marginBottom: "0.75rem",
-              }}
-            >
-              "Une approche globale du bien-être sexuel et émotionnel"
-            </p>
-            <div
-              style={{
-                width: "30px",
-                height: "2px",
-                background: "oklch(0.97 0.005 82 / 0.5)",
-              }}
-            />
-          </div>
-        </div>
-
-        {/* Right: Content */}
-        <div>
-          <span className="section-label animate-fade-up">À propos du cabinet</span>
-          <h2
-            className="animate-fade-up delay-100"
-            style={{
-              fontFamily: "var(--font-display), Georgia, serif",
-              fontSize: "clamp(2rem, 3.5vw, 2.8rem)",
-              fontWeight: 400,
-              color: "oklch(0.22 0.03 55)",
-              marginTop: "0.75rem",
-              marginBottom: "1.5rem",
-              letterSpacing: "-0.02em",
-              lineHeight: 1.15,
-            }}
-          >
-            Un Cabinet Professionnel,{" "}
-            <em style={{ color: "oklch(0.43 0.1 355)", fontStyle: "italic" }}>
-              Neutre et Confidentiel
-            </em>
+    <section id="apropos" className="py-24 px-6 md:px-12 bg-background relative overflow-hidden">
+      
+      {/* 1. Header Section */}
+      <div className="max-w-7xl mx-auto mb-20 md:mb-32">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 animate-fade-up">
+           <h2 className="text-[clamp(3.5rem,8vw,8rem)] font-display font-medium leading-[0.9] tracking-tighter text-foreground max-w-4xl">
+            Notre<br />Histoire.
           </h2>
-
-          <div
-            className="animate-fade-up delay-200"
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: "1rem",
-              marginBottom: "2.5rem",
-            }}
-          >
-            <p
-              style={{
-                fontFamily: "var(--font-sans), system-ui",
-                fontSize: "0.95rem",
-                lineHeight: 1.8,
-                color: "oklch(0.5 0.04 60)",
-              }}
-            >
-              Le cabinet se positionne comme un espace professionnel où chaque
-              personne peut s'exprimer librement, sans jugement. Notre engagement
-              est de créer un lien thérapeutique solide basé sur la crédibilité,
-              l'écoute et le respect mutuel.
-            </p>
-            <p
-              style={{
-                fontFamily: "var(--font-sans), system-ui",
-                fontSize: "0.95rem",
-                lineHeight: 1.8,
-                color: "oklch(0.5 0.04 60)",
-              }}
-            >
-              Nous accompagnons les personnes et les couples motivés à améliorer
-              leur vie intime et relationnelle, avec une approche bienveillante,
-              claire et sans jargon médical.
-            </p>
-          </div>
-
-          {/* Philosophy points */}
-          <div
-            className="animate-fade-up delay-300"
-            style={{ display: "flex", flexDirection: "column", gap: "1rem", marginBottom: "2.5rem" }}
-          >
-            {[
-              {
-                title: "Bienveillance & Clarté",
-                desc: "Ton \"vous\", accompagnement et objectif d'apaisement",
-              },
-              {
-                title: "Personnalisé",
-                desc: "Chaque suivi est adapté à vos besoins spécifiques",
-              },
-              {
-                title: "Flexible",
-                desc: "Consultations en présentiel ou à distance selon vos préférences",
-              },
-            ].map((point) => (
-              <div
-                key={point.title}
-                style={{
-                  display: "flex",
-                  gap: "1rem",
-                  alignItems: "flex-start",
-                }}
-              >
-                <div
-                  style={{
-                    width: "8px",
-                    height: "8px",
-                    borderRadius: "50%",
-                    background: "oklch(0.43 0.1 355)",
-                    flexShrink: 0,
-                    marginTop: "6px",
-                  }}
-                />
-                <div>
-                  <div
-                    style={{
-                      fontFamily: "var(--font-sans), system-ui",
-                      fontSize: "0.88rem",
-                      fontWeight: 600,
-                      color: "oklch(0.22 0.03 55)",
-                      marginBottom: "0.2rem",
-                    }}
-                  >
-                    {point.title}
-                  </div>
-                  <div
-                    style={{
-                      fontFamily: "var(--font-sans), system-ui",
-                      fontSize: "0.83rem",
-                      color: "oklch(0.5 0.04 60)",
-                      lineHeight: 1.6,
-                    }}
-                  >
-                    {point.desc}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <a href="#contact" className="btn-primary animate-fade-up delay-400">
-            Prendre rendez-vous
-          </a>
+           <div className="max-w-md md:text-right">
+             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+               Une approche globale du bien-être sexuel et émotionnel pour vous accompagner vers un équilibre durable.
+             </p>
+           </div>
         </div>
       </div>
 
-      <style>{`
-        @media (max-width: 768px) {
-          .about-grid {
-            grid-template-columns: 1fr !important;
-            gap: 3rem !important;
-          }
-        }
-      `}</style>
+      {/* 2. Content Grid */}
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-16 mb-24 animate-fade-up delay-100">
+        
+        {/* Left Column: Team & Introduction (Span 4) */}
+        <div className="lg:col-span-4 flex flex-col justify-between h-full space-y-8">
+           <div>
+             <span className="text-xs font-bold tracking-widest uppercase text-muted-foreground mb-4 block">Notre Équipe, Notre Histoire</span>
+             <p className="text-muted-foreground leading-relaxed text-lg">
+               Nous croyons en la création d'expériences qui connectent vraiment. Notre histoire est construite sur la passion, l'innovation, et la volonté de donner vie à des idées significatives.
+             </p>
+           </div>
+           
+           <div className="flex items-center gap-4 pt-4 border-t border-border/50">
+             <div className="relative w-12 h-12 rounded-full overflow-hidden bg-muted">
+                {/* Placeholder Avatar - using specific image that looks professional */}
+                <Image 
+                  src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&auto=format&fit=crop"
+                  alt="Avatar"
+                  fill
+                  className="object-cover"
+                />
+             </div>
+             <div>
+               <div className="font-display font-medium text-foreground">Cabinet de Sexothérapie</div>
+               <div className="text-sm text-muted-foreground">Fondateur & Praticien</div>
+             </div>
+           </div>
+        </div>
+
+        {/* Right Column: Detailed Mission (Span 7, Offset 1) */}
+        <div className="lg:col-span-7 lg:col-start-6 space-y-8">
+           <h3 className="text-3xl md:text-4xl lg:text-5xl font-display font-medium text-foreground leading-tight">
+             Nous sommes une équipe de créateurs, penseurs et bâtisseurs qui croient en l'importance d'un espace neutre et bienveillant.
+           </h3>
+           
+           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-8">
+             <div>
+               <h4 className="font-bold text-foreground mb-2">Notre Engagement</h4>
+               <p className="text-muted-foreground text-sm leading-relaxed">
+                 Le cabinet se positionne comme un espace professionnel, neutre et totalement confidentiel. Chaque consultation est personnalisée pour répondre à vos besoins spécifiques.
+               </p>
+             </div>
+             <div>
+                <h4 className="font-bold text-foreground mb-2">Nos Valeurs</h4>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  Professionnalisme, Neutralité, Confidentialité Absolue. Une expertise reconnue et une approche fondée sur les meilleures pratiques en sexothérapie.
+                </p>
+             </div>
+           </div>
+        </div>
+
+      </div>
+
+      {/* 3. Large Hero Image at Bottom */}
+      <div className="max-w-[1400px] mx-auto w-full aspect-[16/9] md:aspect-[2.35/1] relative rounded-[2rem] overflow-hidden animate-fade-up delay-200 group">
+         <Image
+            src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=2400&auto=format&fit=crop" 
+            alt="Cabinet de consultation apaisant"
+            fill
+            className="object-cover transition-transform duration-1000 group-hover:scale-105"
+          />
+          {/* Optional Overlay Text */}
+          <div className="absolute bottom-8 left-8 md:bottom-12 md:left-12 max-w-lg">
+             <div className="bg-background/80 backdrop-blur-md p-6 rounded-2xl border border-white/20 shadow-lg">
+               <p className="text-foreground font-medium text-lg">
+                 "Un accompagnement professionnel pour retrouver équilibre et épanouissement."
+               </p>
+             </div>
+          </div>
+      </div>
+
     </section>
   );
 }

@@ -1,265 +1,135 @@
+import Image from "next/image";
+
 const articles = [
   {
     tag: "Introduction",
-    color: "oklch(0.43 0.1 355)",
-    bg: "oklch(0.96 0.03 355)",
-    title: "Comprendre la sexothérapie",
+    title: "Comprendre la sexothérapie holistique aujourd'hui",
     excerpt:
       "La sexothérapie est une approche thérapeutique spécialisée qui aide les individus et les couples à explorer et résoudre des problématiques liées à leur vie intime. Elle combine écoute, dialogue et exercices pratiques dans un cadre sécurisé.",
-    readTime: "4 min",
-    icon: "🌱",
-  },
-  {
-    tag: "Idées reçues",
-    color: "oklch(0.6 0.08 145)",
-    bg: "oklch(0.96 0.05 145)",
-    title: "Déconstruire les idées reçues",
-    excerpt:
-      "Nombreuses sont les personnes qui hésitent à consulter un sexothérapeute par peur du jugement ou par préjugés. La sexothérapie n'est pas réservée aux cas \"extrêmes\" et s'adresse à quiconque souhaite améliorer son bien-être intime.",
-    readTime: "5 min",
-    icon: "💡",
+    image: "https://images.unsplash.com/photo-1518152006812-edab29b069ac?q=80&w=1600&auto=format&fit=crop",
+    category: "Thérapie",
   },
   {
     tag: "Couple",
-    color: "oklch(0.75 0.1 75)",
-    bg: "oklch(0.97 0.05 75)",
-    title: "Communication dans le couple",
+    title: "Mieux communiquer dans son couple en 2026",
     excerpt:
-      "La communication est le pilier d'une relation épanouie. Apprendre à exprimer ses besoins, écouter activement son partenaire et créer un espace de dialogue ouvert transforme profondément la qualité de la relation amoureuse.",
-    readTime: "6 min",
-    icon: "💬",
+      "La communication est le pilier de l'intimité. Découvrez des méthodes concrètes pour exprimer vos besoins et écouter votre partenaire sans jugement pour renforcer votre lien.",
+    image: "https://images.unsplash.com/photo-1516585427167-9f4af9627e6c?q=80&w=1600&auto=format&fit=crop",
+    category: "Couple",
+  },
+  {
+    tag: "Éducation",
+    title: "Déconstruire les idées reçues sur la sexualité",
+    excerpt:
+      "Libido constante, performance, normalité... Nous déconstruisons les mythes qui pèsent sur notre épanouissement pour retrouver une relation saine et apaisée avec son corps.",
+    image: "https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=1600&auto=format&fit=crop",
+    category: "Éducation",
   },
 ];
 
 export default function Resources() {
+  const featuredArticle = articles[0];
+  const popularPosts = articles.slice(1);
+
   return (
-    <section
-      id="ressources"
-      style={{
-        padding: "7rem 2rem",
-        background: "oklch(0.985 0.007 82)",
-        position: "relative",
-      }}
-    >
-      <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+    <section id="ressources" className="py-24 bg-background px-6">
+      <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            alignItems: "flex-end",
-            justifyContent: "space-between",
-            gap: "1.5rem",
-            marginBottom: "4rem",
-          }}
-        >
-          <div>
-            <span className="section-label animate-fade-up">Blog & ressources</span>
-            <h2
-              className="animate-fade-up delay-100"
-              style={{
-                fontFamily: "var(--font-display), Georgia, serif",
-                fontSize: "clamp(2rem, 4vw, 3rem)",
-                fontWeight: 400,
-                color: "oklch(0.22 0.03 55)",
-                marginTop: "0.75rem",
-                letterSpacing: "-0.02em",
-              }}
-            >
-              Articles & Ressources
-            </h2>
-          </div>
-          <p
-            style={{
-              fontFamily: "var(--font-sans), system-ui",
-              fontSize: "0.9rem",
-              color: "oklch(0.5 0.04 60)",
-              maxWidth: "320px",
-              lineHeight: 1.65,
-              textAlign: "right",
-            }}
-          >
-            Des contenus pour comprendre, déconstruire et avancer à votre rythme.
+        <div className="text-center mb-16">
+          <h2 className="text-5xl md:text-6xl font-serif text-foreground mb-6 tracking-tight">
+            Ressources & Articles
+          </h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">
+            Comprendre la sexothérapie, déconstruire les idées reçues et améliorer la communication dans le couple.
           </p>
         </div>
 
-        {/* Articles grid */}
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-            gap: "2rem",
-          }}
-        >
-          {articles.map((a, i) => (
-            <article
-              key={a.title}
-              className={`card-hover animate-fade-up delay-${(i + 2) * 100}`}
-              style={{
-                background: "oklch(0.985 0.007 82)",
-                border: "1px solid oklch(0.88 0.018 80)",
-                borderRadius: "1.5rem",
-                overflow: "hidden",
-                cursor: "pointer",
-              }}
-            >
-              {/* Article top area */}
-              <div
-                style={{
-                  background: a.bg,
-                  padding: "2rem 2rem 1.5rem",
-                  position: "relative",
-                  overflow: "hidden",
-                }}
-              >
-                {/* Decorative blob */}
-                <div
-                  aria-hidden
-                  style={{
-                    position: "absolute",
-                    bottom: "-20px",
-                    right: "-20px",
-                    width: "100px",
-                    height: "100px",
-                    borderRadius: "50%",
-                    background: a.color,
-                    opacity: 0.1,
-                    filter: "blur(20px)",
-                  }}
-                />
-                <div style={{ fontSize: "2.5rem", marginBottom: "0.75rem" }}>{a.icon}</div>
-                <div
-                  style={{
-                    display: "inline-block",
-                    background: "oklch(0.985 0.007 82 / 0.7)",
-                    color: a.color,
-                    borderRadius: "9999px",
-                    padding: "0.2rem 0.75rem",
-                    fontSize: "0.65rem",
-                    fontWeight: 700,
-                    fontFamily: "var(--font-sans), system-ui",
-                    letterSpacing: "0.1em",
-                    textTransform: "uppercase",
-                  }}
-                >
-                  {a.tag}
-                </div>
-              </div>
-
-              {/* Article content */}
-              <div style={{ padding: "1.75rem 2rem 2rem" }}>
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                    marginBottom: "1rem",
-                  }}
-                >
-                  <h3
-                    style={{
-                      fontFamily: "var(--font-display), Georgia, serif",
-                      fontSize: "1.3rem",
-                      fontWeight: 400,
-                      color: "oklch(0.22 0.03 55)",
-                      lineHeight: 1.3,
-                      letterSpacing: "-0.01em",
-                    }}
-                  >
-                    {a.title}
-                  </h3>
-                </div>
-                <p
-                  style={{
-                    fontFamily: "var(--font-sans), system-ui",
-                    fontSize: "0.85rem",
-                    lineHeight: 1.75,
-                    color: "oklch(0.5 0.04 60)",
-                    marginBottom: "1.5rem",
-                  }}
-                >
-                  {a.excerpt}
-                </p>
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                  }}
-                >
-                  <span
-                    style={{
-                      fontFamily: "var(--font-sans), system-ui",
-                      fontSize: "0.75rem",
-                      color: "oklch(0.65 0.04 60)",
-                    }}
-                  >
-                    ⏱ {a.readTime} de lecture
-                  </span>
-                  <span
-                    style={{
-                      fontFamily: "var(--font-sans), system-ui",
-                      fontSize: "0.8rem",
-                      fontWeight: 600,
-                      color: a.color,
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "0.4rem",
-                    }}
-                  >
-                    Lire →
-                  </span>
-                </div>
-              </div>
-            </article>
-          ))}
-        </div>
-
-        {/* Newsletter CTA */}
-        <div
-          className="animate-fade-up"
-          style={{
-            marginTop: "4rem",
-            background: "linear-gradient(135deg, oklch(0.96 0.03 355) 0%, oklch(0.97 0.05 75) 100%)",
-            borderRadius: "2rem",
-            padding: "3rem",
-            display: "grid",
-            gridTemplateColumns: "1fr auto",
-            gap: "2rem",
-            alignItems: "center",
-            border: "1px solid oklch(0.88 0.05 355)",
-          }}
-        >
-          <div>
-            <h3
-              style={{
-                fontFamily: "var(--font-display), Georgia, serif",
-                fontSize: "1.8rem",
-                fontWeight: 400,
-                color: "oklch(0.22 0.03 55)",
-                marginBottom: "0.75rem",
-                letterSpacing: "-0.01em",
-              }}
-            >
-              Newsletter mensuelle gratuite
-            </h3>
-            <p
-              style={{
-                fontFamily: "var(--font-sans), system-ui",
-                fontSize: "0.9rem",
-                color: "oklch(0.5 0.04 60)",
-                lineHeight: 1.65,
-                maxWidth: "500px",
-              }}
-            >
-              Conseils pratiques, ressources exclusives et informations sur les prochains
-              ateliers et lives. Rejoignez la communauté.
-            </p>
+        {/* Featured Post (Layout from Image) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-16 p-6 bg-card rounded-[2rem] border border-border">
+          <div className="lg:col-span-5 relative aspect-[4/3] w-full bg-muted rounded-xl overflow-hidden group">
+            <Image
+              src={featuredArticle.image}
+              alt={featuredArticle.title}
+              fill
+              className="object-cover transition-transform duration-700 group-hover:scale-105"
+            />
           </div>
-          <a href="#contact" className="btn-primary" style={{ whiteSpace: "nowrap" }}>
-            S'abonner
-          </a>
+
+          <div className="lg:col-span-7 flex flex-col items-start gap-3">
+            <span className="px-3 py-1 bg-muted/80 text-foreground text-[10px] font-bold rounded-full uppercase tracking-wider">
+              {featuredArticle.category}
+            </span>
+            <h3 className="text-2xl md:text-3xl font-serif text-foreground leading-tight">
+              {featuredArticle.title}
+            </h3>
+            <p className="text-muted-foreground text-base leading-relaxed line-clamp-3">
+              {featuredArticle.excerpt}
+            </p>
+            <div className="mt-2">
+              <a href="#consultations" className="text-sm font-medium underline underline-offset-4 decoration-primary/50 hover:decoration-primary transition-all">
+                Lire l'article complet →
+              </a>
+            </div>
+          </div>
         </div>
+
+        {/* Popular Posts Section */}
+        <div className="mb-12">
+          <h3 className="text-3xl font-serif text-foreground mb-12">Popular Posts</h3>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {popularPosts.map((post) => (
+              <article key={post.title} className="group cursor-pointer">
+                <div className="relative aspect-square bg-muted rounded-2xl overflow-hidden mb-6">
+                  <Image
+                    src={post.image}
+                    alt={post.title}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                </div>
+
+                <div className="flex flex-col gap-3">
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground/80 bg-muted/50 w-fit px-2 py-0.5 rounded">
+                    {post.tag}
+                  </span>
+                  <h4 className="text-xl font-serif text-foreground leading-snug group-hover:text-primary transition-colors">
+                    {post.title}
+                  </h4>
+                  <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3">
+                    {post.excerpt}
+                  </p>
+                </div>
+              </article>
+            ))}
+            {/* Newsletter Card (Takes 3rd slot) */}
+            <div className="group h-full flex flex-col justify-between bg-secondary/10 rounded-2xl p-8 border border-border">
+              <div>
+                <span className="text-[10px] font-bold uppercase tracking-widest text-primary mb-6 block">
+                  Newsletter
+                </span>
+                <h3 className="text-2xl font-serif text-foreground mb-4 leading-tight">
+                  Rejoignez la communauté
+                </h3>
+                <p className="text-muted-foreground text-sm leading-relaxed mb-8">
+                  Recevez mensuellement nos conseils pratiques, ressources exclusives et restez informé des prochains ateliers et lives.
+                </p>
+              </div>
+              
+              <div className="mt-auto">
+                 <a 
+                  href="#contact" 
+                  className="inline-flex items-center justify-center w-full px-6 py-3 bg-foreground text-background rounded-full hover:opacity-90 transition-all font-medium text-sm"
+                >
+                  S'abonner gratuitement
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Newsletter Section Re-styled */}
+
       </div>
     </section>
   );

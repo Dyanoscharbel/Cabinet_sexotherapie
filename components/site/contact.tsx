@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Mail, MapPin, Share2, Send, Instagram, Twitter, Linkedin } from "lucide-react";
+import { Mail, MapPin, Share2, Send, Instagram, Linkedin, Music2 } from "lucide-react";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -20,7 +20,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="bg-white"
+      className="bg-background"
       style={{
         padding: "8rem 2rem",
         position: "relative",
@@ -36,7 +36,7 @@ export default function Contact() {
               fontFamily: "var(--font-display), Georgia, serif",
               fontSize: "clamp(2.5rem, 5vw, 4.5rem)",
               fontWeight: 500,
-              color: "oklch(0.1 0.01 55)",
+              color: "var(--foreground)",
               letterSpacing: "-0.03em",
               lineHeight: 1.1,
             }}
@@ -48,7 +48,7 @@ export default function Contact() {
             style={{
               fontFamily: "var(--font-sans), system-ui",
               fontSize: "1.1rem",
-              color: "oklch(0.5 0.04 60)",
+              color: "var(--muted-foreground)",
               marginTop: "1.5rem",
               maxWidth: "600px",
               margin: "1.5rem auto 0",
@@ -100,7 +100,7 @@ export default function Contact() {
                   <Instagram size={20} />
                 </a>
                 <a href="#" style={socialIconStyle}>
-                  <Twitter size={20} />
+                  <Music2 size={20} />
                 </a>
                 <a href="#" style={socialIconStyle}>
                   <Linkedin size={20} />
@@ -110,7 +110,7 @@ export default function Contact() {
           </div>
 
           {/* Vertical Separator */}
-          <div style={{ background: "oklch(0.9 0.02 80)", width: "1px" }} className="hide-on-mobile"></div>
+          <div style={{ background: "var(--border)", width: "1px" }} className="hide-on-mobile"></div>
 
           {/* Right: Form */}
           <div>
@@ -119,7 +119,7 @@ export default function Contact() {
             {submitted ? (
               <div style={{ padding: "4rem 0", textAlign: "left" }}>
                 <h4 style={{ fontFamily: "var(--font-display)", fontSize: "2rem", marginBottom: "1rem" }}>🌸 Message envoyé !</h4>
-                <p style={{ color: "oklch(0.5 0.04 60)", maxWidth: "400px", lineHeight: "1.6" }}>
+                <p style={{ color: "var(--muted-foreground)", maxWidth: "400px", lineHeight: "1.6" }}>
                   Merci pour votre confiance. Nous avons bien reçu votre demande et reviendrons vers vous dans les plus brefs délais.
                 </p>
                 <button 

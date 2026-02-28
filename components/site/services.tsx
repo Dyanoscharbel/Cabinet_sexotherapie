@@ -9,9 +9,9 @@ const services = [
   {
     tag: "Individuel",
     icon: "🌸",
-    title: "Consultation Individuelle",
+    title: "Accompagnement Individuel Holistique",
     description:
-      "Un espace privatif pour explorer vos questionnements intimes à votre rythme. Que ce soit concernant le désir, l'identité, le corps ou la relationship avec soi-même.",
+      "Un espace privilégié pour explorer votre intimité en toute confiance. Que ce soit sur le désir, l'identité ou la relation à soi, nous cheminons à votre propre rythme.",
     features: [
       "Écoute personnalisée et sans jugement",
       "Approche globale et holistique",
@@ -23,15 +23,15 @@ const services = [
     image: "https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=1600&auto=format&fit=crop",
     quote: "J'ai enfin trouvé un espace où je me sens écoutée et comprise. Merci pour votre bienveillance.",
     author: "Sophie M.",
-    color: "oklch(0.43 0.1 355)",
-    bg: "oklch(0.96 0.03 355)",
+    color: "var(--primary)",
+    bg: "var(--rose-pale)",
   },
   {
     tag: "Couple",
     icon: "💫",
-    title: "Consultation de Couple",
+    title: "Soutien Thérapeutique de Couple",
     description:
-      "Retrouvez la complicité et renouez avec l'intimité. Un accompagnement bienveillant pour les couples souhaitant améliorer leur communication et leur vie affective.",
+      "Retrouvez la complicité et renouez avec votre intimité. Un accompagnement bienveillant pour transformer votre communication et enrichir votre vie affective durable.",
     features: [
       "Communication améliorée",
       "Gestion des conflits",
@@ -43,15 +43,15 @@ const services = [
     image: "https://images.unsplash.com/photo-1516585427167-9f4af9627e6c?q=80&w=1600&auto=format&fit=crop",
     quote: "Nous avons réussi à surmonter nos blocages et à retrouver une intimité épanouie.",
     author: "Marc & Léa",
-    color: "oklch(0.6 0.08 145)",
-    bg: "oklch(0.96 0.05 145)",
+    color: "var(--secondary)",
+    bg: "var(--sage-light)",
   },
   {
     tag: "En ligne",
     icon: "💻",
-    title: "Téléconsultation",
+    title: "Consultation Vidéo à Distance",
     description:
-      "La même qualité d'accompagnement que les séances en présentiel, depuis le confort de votre domicile. Via Google Meet, en audio ou vidéo.",
+      "Bénéficiez de la même expertise que nos séances en cabinet directement chez vous. Une solution flexible par Google Meet garantissant confort et confidentialité totale.",
     features: [
       "Depuis n'importe quel endroit",
       "Flexibilité totale des horaires",
@@ -63,8 +63,8 @@ const services = [
     image: "https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?q=80&w=1600&auto=format&fit=crop",
     quote: "La téléconsultation m'a permis de suivre ma thérapie malgré mes déplacements professionnels.",
     author: "Thomas L.",
-    color: "oklch(0.75 0.1 75)",
-    bg: "oklch(0.97 0.05 75)",
+    color: "var(--accent)",
+    bg: "var(--muted)",
   },
 ];
 
@@ -80,13 +80,6 @@ function ProgressPill({ index, total, scrollYProgress, color }: ProgressPillProp
   const segmentStart = index / total;
   const segmentEnd = (index + 1) / total;
 
-  const width = useTransform(scrollYProgress, (v: number) => {
-    if (v <= segmentStart) return 24;
-    if (v >= segmentEnd) return 48;
-    const localProgress = (v - segmentStart) / (segmentEnd - segmentStart);
-    return 24 + localProgress * 24;
-  });
-
   const fillWidth = useTransform(scrollYProgress, (v: number) => {
     if (v <= segmentStart) return "0%";
     if (v >= segmentEnd) return "100%";
@@ -96,10 +89,9 @@ function ProgressPill({ index, total, scrollYProgress, color }: ProgressPillProp
 
   return (
     <motion.div
-      className="relative h-1.5 rounded-full bg-neutral-200 overflow-hidden shrink-0"
-      style={{ width }}
+      className="relative h-1.5 w-12 rounded-full bg-border overflow-hidden shrink-0"
     >
-      <div className="absolute inset-0 bg-neutral-200" />
+      <div className="absolute inset-0 bg-border" />
       <motion.div
         className="absolute left-0 top-0 bottom-0"
         style={{
@@ -144,49 +136,24 @@ export default function Services() {
           {/* Left Column: Title and Progress */}
           <div className="lg:col-span-4 flex flex-col justify-center h-full max-h-[80vh] relative z-10 p-4">
              {/* Transitioning Content Container */}
-             <div className="relative w-full">
-              {/* Force height to prevent layout shifts */}
-              <div className="invisible h-0 overflow-hidden">
-                <h2 className="font-display text-4xl md:text-5xl lg:text-5xl leading-tight">Placeholder</h2>
-                <p className="text-lg leading-relaxed">Placeholder for height calculation</p>
-              </div>
-
-               {/* Absolute Positioning for Overlapping Slides - BUT ONLY for text that changes */}  
-               {/* Actually, to prevent layout shift, let's keep the container static height or use a layout that fits the tallest content */}
-               
-               {/* Since we want NO layout shift, we should render the content absolutely on top of each other, 
-                   but we need a container with enough height. Let's use a fixed height container for now as requested. */}
-              
-              <div className="relative h-[480px]">
-              
+             <div className="relative w-full h-[500px]">
               {services.map((service, index) => (
                 <motion.div
                   key={service.tag}
                   className="absolute inset-0 flex flex-col justify-center"
-                  initial={{ opacity: 0 }}
+                  initial={{ opacity: 0, y: 10 }}
                   animate={{ 
                     opacity: activeIndex === index ? 1 : 0,
+                    y: activeIndex === index ? 0 : -10,
                     pointerEvents: activeIndex === index ? "auto" : "none"
                   }}
-                  transition={{ duration: 0.5 }}
-                >
-                  <div className="mb-6">
-                    <span 
-                      className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider"
-                      style={{ 
-                        backgroundColor: service.bg, 
-                        color: service.color 
-                      }}
-                    >
-                      {service.icon} {service.tag}
-                    </span>
-                  </div>
-                  
-                  <h2 className="font-display text-4xl md:text-5xl lg:text-5xl text-neutral-900 mb-6 leading-tight">
+                  transition={{ duration: 0.5, ease: "easeOut" }}
+                >                 
+                  <h2 className="font-display text-4xl md:text-5xl lg:text-5xl text-foreground mb-6 leading-tight">
                     {service.title}
                   </h2>
                   
-                  <p className="text-lg text-neutral-500 mb-8 leading-relaxed">
+                  <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
                     {service.description}
                   </p>
                   
@@ -206,17 +173,16 @@ export default function Services() {
                   {/* Big Stat */}
                   <div className="mt-auto pt-8 border-t border-neutral-100">
                     <div className="flex flex-col">
-                      <span className="text-6xl font-display font-medium text-neutral-900 tracking-tight">
+                      <span className="text-6x font-display font-medium text-foreground tracking-tight">
                         {service.stat}
                       </span>
-                      <span className="text-sm text-neutral-500 uppercase tracking-wide mt-2">
+                      <span className="text-sm text-muted-foreground uppercase tracking-wide mt-2">
                         {service.statLabel}
                       </span>
                     </div>
                   </div>
                 </motion.div>
               ))}
-              </div>
             </div>
           </div>
 

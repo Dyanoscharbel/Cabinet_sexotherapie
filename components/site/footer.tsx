@@ -6,8 +6,8 @@ export default function Footer() {
   return (
     <footer
       style={{
-        background: "oklch(0.22 0.03 55)",
-        color: "oklch(0.75 0.04 60)",
+        background: "var(--foreground)",
+        color: "var(--muted-foreground)",
         padding: "5rem 2rem 2.5rem",
         position: "relative",
         overflow: "hidden",
@@ -23,7 +23,7 @@ export default function Footer() {
           width: "500px",
           height: "500px",
           borderRadius: "50%",
-          background: "oklch(0.43 0.1 355 / 0.05)",
+          background: "var(--primary) / 0.05",
           filter: "blur(60px)",
         }}
       />
@@ -54,7 +54,7 @@ export default function Footer() {
                   fontFamily: "var(--font-display), Georgia, serif",
                   fontSize: "1.5rem",
                   fontWeight: 500,
-                  color: "oklch(0.97 0.005 82)",
+                  color: "var(--background)",
                   lineHeight: 1.1,
                   marginBottom: "0.25rem",
                 }}
@@ -68,7 +68,7 @@ export default function Footer() {
                   fontWeight: 600,
                   letterSpacing: "0.2em",
                   textTransform: "uppercase",
-                  color: "oklch(0.43 0.1 355)",
+                  color: "var(--primary)",
                 }}
               >
                 de Sexothérapie
@@ -79,7 +79,7 @@ export default function Footer() {
                 fontFamily: "var(--font-sans), system-ui",
                 fontSize: "0.85rem",
                 lineHeight: 1.7,
-                color: "oklch(0.65 0.04 60)",
+                color: "var(--muted-foreground)",
                 maxWidth: "280px",
                 marginBottom: "1.5rem",
               }}
@@ -97,8 +97,8 @@ export default function Footer() {
                     width: "36px",
                     height: "36px",
                     borderRadius: "8px",
-                    background: "oklch(0.3 0.03 55)",
-                    color: "oklch(0.75 0.04 60)",
+                    background: "var(--muted) / 0.1",
+                    color: "var(--muted-foreground)",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
@@ -111,13 +111,13 @@ export default function Footer() {
                   }}
                   onMouseEnter={(e) => {
                     const el = e.target as HTMLElement;
-                    el.style.background = "oklch(0.43 0.1 355)";
-                    el.style.color = "oklch(0.97 0.005 82)";
+                    el.style.background = "var(--primary)";
+                    el.style.color = "var(--primary-foreground)";
                   }}
                   onMouseLeave={(e) => {
                     const el = e.target as HTMLElement;
-                    el.style.background = "oklch(0.3 0.03 55)";
-                    el.style.color = "oklch(0.75 0.04 60)";
+                    el.style.background = "var(--muted) / 0.1";
+                    el.style.color = "var(--muted-foreground)";
                   }}
                 >
                   {s}
@@ -131,6 +131,7 @@ export default function Footer() {
             {
               title: "Navigation",
               links: [
+                { label: "Accueil", href: "#accueil" },
                 { label: "À propos", href: "#apropos" },
                 { label: "Services", href: "#services" },
                 { label: "Consultations", href: "#consultations" },
@@ -145,7 +146,7 @@ export default function Footer() {
                 { label: "Couple", href: "#services" },
                 { label: "Téléconsultation", href: "#services" },
                 { label: "Ateliers", href: "#consultations" },
-                { label: "Newsletter", href: "#ressources" },
+                { label: "Processus", href: "#processus" },
               ],
             },
             {
